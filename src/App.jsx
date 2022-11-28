@@ -6,6 +6,7 @@ function App() {
       <h2 className="title">hello, world</h2>
       {/* create num counter */}
       <span className=""> Hello Luka </span>
+      <p>ბარემ ჩემიც</p>
     </div>
   );
 }
