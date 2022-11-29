@@ -31,14 +31,20 @@ export const SDropDownSVGWrapper = styled.span`
 
 export const SDropDownUl = styled.ul`
   width: 10rem;
+  position: absolute;
   display: flex;
   flex-direction: column;
+  top: 3.2rem;
   gap: 0.2rem 0;
   list-style: none;
+  z-index: 9;
 `;
 
 export const SDropDownLi = styled.li`
   padding: 0.3rem;
   text-align: left;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 0.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
 `;
