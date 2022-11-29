@@ -12,12 +12,14 @@ const words = [
   "network",
 ];
 
-function App() {
+import React from "react";
+
+const App = () => {
   return (
     <div className="App">
       <Dropdown words={words} />
     </div>
   );
-}
+};
 
 export default App;

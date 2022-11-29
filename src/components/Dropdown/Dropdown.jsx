@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { AiFillCaretUp } from "react-icons/ai";
 import {
@@ -10,18 +10,22 @@ import {
 } from "./DropDown.styled";
 
 export const Dropdown = ({ words }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <SDropDownWrapper>
-      <SDropDownButton>
+      <SDropDownButton onClick={() => setIsOpen(!isOpen)}>
         Drop Down
         <SDropDownSVGWrapper>
-          <AiFillCaretUp fill="#ffffff" />
+          {isOpen && <AiFillCaretDown fill="#ffffff" />}
+          {!isOpen && <AiFillCaretUp fill="#ffffff" />}
         </SDropDownSVGWrapper>
       </SDropDownButton>
       <SDropDownUl>
-        {words.map((word) => {
-          return <SDropDownLi key={word}>{word}</SDropDownLi>;
-        })}
+        {isOpen &&
+          words.map((word) => {
+            return <SDropDownLi key={word}>{word}</SDropDownLi>;
+          })}
       </SDropDownUl>
     </SDropDownWrapper>
   );
