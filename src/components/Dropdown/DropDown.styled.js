@@ -2,10 +2,6 @@ import styled from "styled-components";
 
 export const SDropDownWrapper = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem 0;
 `;
 
 export const SDropDownButton = styled.button`
