@@ -17,6 +17,7 @@ import React from "react";
 const App = () => {
   return (
     <div className="App">
+      <h2>Header</h2>
       <Dropdown words={words} />
     </div>
   );
