@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const SDropDownWrapper = styled.div`
+export const SDropDownWrapper = styled(motion.div)`
   position: relative;
 `;
 
@@ -25,7 +26,12 @@ export const SDropDownSVGWrapper = styled.span`
   line-height: 2.5rem;
 `;
 
-export const SDropDownUl = styled.ul`
+export const SDropDownArrowMotion = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+`;
+
+export const SDropDownUl = styled(motion.ul)`
   width: 10rem;
   position: absolute;
   display: flex;
@@ -36,11 +42,14 @@ export const SDropDownUl = styled.ul`
   z-index: 9;
 `;
 
-export const SDropDownLi = styled.li`
+export const SDropDownLi = styled(motion.li)`
+  font-size: 1.2rem;
+  cursor: pointer;
+`;
+
+export const SDropDownValue = styled(motion.div)`
   padding: 0.3rem;
   text-align: left;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 0.2rem;
-  font-size: 1.2rem;
-  cursor: pointer;
 `;
