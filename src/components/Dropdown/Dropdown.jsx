@@ -10,12 +10,7 @@ import {
   SDropDownArrowMotion,
   SDropDownValue,
 } from "./DropDown.styled";
-import {
-  arrowVariants,
-  itemVariants,
-  listVariants,
-  valueVariants,
-} from "./variants";
+import { arrowVariants, itemVariants, valueVariants } from "./variants";
 
 export const Dropdown = ({ words }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +38,9 @@ export const Dropdown = ({ words }) => {
             initial="closed"
             animate="open"
             exit="closed"
-            variants={listVariants}
+            transition={{
+              staggerChildren: 0.045,
+            }}
           >
             {words.map((word) => {
               return (

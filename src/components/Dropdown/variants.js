@@ -7,21 +7,6 @@ export const arrowVariants = {
   },
 };
 
-export const listVariants = {
-  closed: {
-    height: 0,
-    transition: {
-      staggerChildren: 0.025,
-    },
-  },
-  open: {
-    height: "fit-content",
-    transition: {
-      staggerChildren: 0.025,
-    },
-  },
-};
-
 export const itemVariants = {
   closed: {
     x: "-50px",
@@ -42,7 +27,7 @@ export const itemVariants = {
 
 export const valueVariants = {
   base: {
-    backgroundColor: "rgba(222, 222, 222, 0)",
+    backgroundColor: "rgba(240, 240, 240, 0)",
   },
   hovered: {
     backgroundColor: "rgba(240, 240, 240, 1)",
