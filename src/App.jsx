@@ -14,7 +14,7 @@ const words = [
 
 const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <h2>Header</h2>
       <Dropdown words={words} />
     </div>

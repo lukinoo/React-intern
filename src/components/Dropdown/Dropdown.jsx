@@ -1,12 +1,21 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { AiFillCaretDown } from "react-icons/ai";
 import {
   SDropDownWrapper,
   SDropDownButton,
   SDropDownSVGWrapper,
   SDropDownUl,
   SDropDownLi,
+  SDropDownArrowMotion,
+  SDropDownValue,
 } from "./DropDown.styled";
+import {
+  arrowVariants,
+  itemVariants,
+  listVariants,
+  valueVariants,
+} from "./variants";
 
 export const Dropdown = ({ words }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,25 +27,45 @@ export const Dropdown = ({ words }) => {
   };
 
   return (
-    <SDropDownWrapper>
+    <SDropDownWrapper animate={isOpen ? "open" : "closed"}>
       <SDropDownButton onClick={() => setIsOpen(!isOpen)}>
         {!selectedWord && "Drop Down"}
         {selectedWord && selectedWord}
         <SDropDownSVGWrapper>
-          {isOpen && <AiFillCaretDown fill="#ffffff" />}
-          {!isOpen && <AiFillCaretUp fill="#ffffff" />}
+          <SDropDownArrowMotion variants={arrowVariants}>
+            <AiFillCaretDown fill="#ffffff" />
+          </SDropDownArrowMotion>
         </SDropDownSVGWrapper>
       </SDropDownButton>
-      <SDropDownUl>
-        {isOpen &&
-          words.map((word) => {
-            return (
-              <SDropDownLi key={word} onClick={() => handleSelected(word)}>
-                {word}
-              </SDropDownLi>
-            );
-          })}
-      </SDropDownUl>
+      <AnimatePresence>
+        {isOpen && (
+          <SDropDownUl
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={listVariants}
+          >
+            {words.map((word) => {
+              return (
+                <SDropDownLi
+                  key={word}
+                  onClick={() => handleSelected(word)}
+                  variants={itemVariants}
+                >
+                  <SDropDownValue
+                    variants={valueVariants}
+                    initial={"base"}
+                    whileHover="hovered"
+                    whileTap="clicked"
+                  >
+                    {word}
+                  </SDropDownValue>
+                </SDropDownLi>
+              );
+            })}
+          </SDropDownUl>
+        )}
+      </AnimatePresence>
     </SDropDownWrapper>
   );
 };
