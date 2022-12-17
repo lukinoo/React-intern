@@ -3,6 +3,7 @@ import "./App.css";
 import { Dropdown } from "./components/Dropdown";
 import { ErrorGroup } from "./components/ErrorGroup";
 import { motion } from "framer-motion";
+import { Sketcher } from "./components/Sketcher";
 // const words = [
 //   "monitor",
 //   "program",
@@ -15,36 +16,37 @@ import { motion } from "framer-motion";
 // ];
 
 const App = () => {
-  const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null)
-  const [errors, setErrors] = useState({
-    firstname: { message: "", code: null },
-  });
+  // const [username, setUsername] = useState("");
+  // const [user, setUser] = useState(null)
+  // const [errors, setErrors] = useState({
+  //   firstname: { message: "", code: null },
+  // });
 
-  const handleChange = (e) => {
-    setUsername(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   setUsername(e.target.value);
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch(`https://api.github.com/users/${username}`)
-            .then(async (res) => {
-                return [res, await res.json()]
-            })
-            .then(([res, data]) => {
-              if(res.ok){
-                return setUser(data)
-              }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetch(`https://api.github.com/users/${username}`)
+  //           .then(async (res) => {
+  //               return [res, await res.json()]
+  //           })
+  //           .then(([res, data]) => {
+  //             if(res.ok){
+  //               return setUser(data)
+  //             }
 
-              const tempObj = { ...errors };
-              tempObj.firstname = { message: data.message, code: res.status };
-              setErrors(tempObj);
-            })
-  };
+  //             const tempObj = { ...errors };
+  //             tempObj.firstname = { message: data.message, code: res.status };
+  //             setErrors(tempObj);
+  //           })
+  // };
 
   return (
     <div className="App">
-      <form
+      <Sketcher />
+      {/* <form
         style={{ display: "flex", flexDirection: "column", width: "200px" }}
       >
         <h2>Header</h2>
@@ -59,7 +61,7 @@ const App = () => {
          <span>
          {user ? user.name : 'no user'}
         </span>
-      </form>
+      </form> */}
       {/* <Dropdown words={words} /> */}
     </div>
   );
